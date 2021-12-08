@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
+import { cardStyles } from './Card.styles'
 
-type CardProps = {
+export type CardProps = {
   readonly title: string
   readonly background: string
   readonly color: string
@@ -9,7 +10,7 @@ type CardProps = {
 
 export const Card = ({ title, description, background, color }: CardProps) => {
   return (
-    <div style={{ background, color, width: '10%' }}>
+    <div css={cardStyles(background, color)}>
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
