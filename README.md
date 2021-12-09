@@ -2,7 +2,7 @@
 
 This Project creates kanban board which can be use for tracking work progress.
 
-![kanban Board](https://github.com/akshay14ce1078/kanban-board/blob/main/docs/dragging-card.png)
+![kanban Board](https://github.com/akshay14ce1078/kanban-board/blob/master/docs/dragging-card.png)
 
 ## Available Scripts
 
