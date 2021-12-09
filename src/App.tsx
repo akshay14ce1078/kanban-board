@@ -1,47 +1,15 @@
 /** @jsxImportSource @emotion/react */
-import { Column } from './components'
-import { appHeaderStyles } from './App.styles'
+import { appHeaderStyles } from './App.styles';
+import { Board } from './components/Board';
+import { BoardState } from './app-state';
 
-const cardsList1 = [
-  {
-    background: 'green',
-    color: 'white',
-    title: 'Card Title-1',
-    description: 'This is my First card.',
-  },
-  {
-    background: 'blue',
-    color: 'white',
-    title: 'Card Title-2',
-    description: 'This is my Second card.',
-  },
-  {
-    background: 'yellow',
-    color: 'white',
-    title: 'Card Title-2',
-    description: 'This is my Second card.',
-  },
-]
-const cardsList2 = [
-  {
-    background: 'yellow',
-    color: 'white',
-    title: 'Card Title-1',
-    description: 'This is my First card.',
-  },
-]
-
-function App() {
+function App({ appState: boardState }: { readonly appState: BoardState }) {
   return (
-    <div>
-      <div css={appHeaderStyles}>
-        <Column cardsList={cardsList1} />
-        <Column cardsList={cardsList2} />
-        <Column cardsList={[]} />
-        <Column cardsList={[]} />
-      </div>
+    <div css={appHeaderStyles}>
+      <h2>Kanban Board </h2>
+      <Board boardState={boardState} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
