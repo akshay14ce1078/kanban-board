@@ -1,4 +1,4 @@
-import { Card } from '../model';
+import { Card, CardIdType, ColumnType } from '../model';
 import { boardState } from './BoardState';
 
 type ObserverType = ((state: ReadonlyArray<Card>) => void) | null;
@@ -23,3 +23,12 @@ export function observe(o: ObserverType) {
 }
 
 // API for state modifictaion
+
+export function moveCard(cardId: CardIdType, targetColumnType: ColumnType) {
+  const cardIndex = boardState.findIndex((card) => card.cardId === cardId);
+
+  if (cardIndex !== -1) {
+    boardState[cardIndex] = { cardId, presentInColumn: targetColumnType };
+    emitEvent();
+  }
+}

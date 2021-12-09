@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const ColumnContainer = styled.div`
+export const ColumnContainer = styled.div<{ readonly isOver: boolean }>`
   display: flex;
   flex-direction: column;
   width: 25%;
   min-height: 800px;
-  background-color: #f5f5f5;
+  background-color: ${(props) => (props.isOver ? '#AAFF00' : '#f5f5f5')};
   border-radius: 15px;
   margin: 10px;
   padding: 10px;

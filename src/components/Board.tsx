@@ -38,10 +38,10 @@ export const Board = ({ boardState }: BoardProps) => {
 
   return (
     <BoardContainer>
-      <Column title="Backlog" cardsList={backlogCards} />
-      <Column title="Todo" cardsList={todoCards} />
-      <Column title="In Progress" cardsList={inProgressCards} />
-      <Column title="Done" cardsList={doneCards} />
+      <Column columnType={ColumnType.BACKLOG} cardsList={backlogCards} />
+      <Column columnType={ColumnType.TODO} cardsList={todoCards} />
+      <Column columnType={ColumnType.IN_PROGRESS} cardsList={inProgressCards} />
+      <Column columnType={ColumnType.DONE} cardsList={doneCards} />
     </BoardContainer>
   );
 };
