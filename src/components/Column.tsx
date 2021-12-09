@@ -1,17 +1,22 @@
 /** @jsxImportSource @emotion/react */
-import { Card, CardProps } from '.'
-import { ColumnContainer } from './Column.styles'
+import { cardsState } from '../app-state';
+import { CardIdType } from '../model';
+import { Card } from './Card';
+import { ColumnContainer, ColumnTitle } from './Column.styles';
 
 type ColumnProps = {
-  readonly cardsList: ReadonlyArray<CardProps>
-}
+  readonly cardsList: ReadonlyArray<CardIdType>;
+  readonly title: string;
+};
 
-export const Column = ({ cardsList }: ColumnProps) => {
+export const Column = ({ cardsList, title }: ColumnProps) => {
   return (
     <ColumnContainer>
-      {cardsList.map((props) => (
-        <Card {...props} />
-      ))}
+      <ColumnTitle>{title}</ColumnTitle>
+      {cardsList.map((cardId) => {
+        const cardDetails = cardsState[cardId];
+        return <Card key={cardId} {...cardDetails} />;
+      })}
     </ColumnContainer>
-  )
-}
+  );
+};
