@@ -1,3 +1,4 @@
+import { cardsState } from '.';
 import { Card, CardIdType, ColumnType } from '../model';
 import { boardState } from './BoardState';
 
@@ -31,4 +32,15 @@ export function moveCard(cardId: CardIdType, targetColumnType: ColumnType) {
     boardState[cardIndex] = { cardId, presentInColumn: targetColumnType };
     emitEvent();
   }
+}
+
+export function addNewCard(
+  cardId: CardIdType,
+  title: string,
+  description: string,
+  fill = 'violet'
+) {
+  boardState.push({ cardId, presentInColumn: ColumnType.BACKLOG });
+  cardsState[cardId] = { title, description, color: 'white', background: fill };
+  emitEvent();
 }
